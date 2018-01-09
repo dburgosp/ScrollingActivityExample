@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="usuario.example.com.scrollingactivityexample.ScrollingActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimaryDark"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:toolbarId="@+id/toolbar">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimaryDark">
+
+                <ImageView
+                    android:id="@+id/movie_details_background"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:alpha="0.3"
+                    android:scaleType="center"
+                    android:src="@drawable/starwars" />
+
+                <LinearLayout
+                    android:id="@+id/movie_details_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/regular_padding"
+                    android:layout_marginEnd="@dimen/regular_padding"
+                    android:layout_marginStart="@dimen/regular_padding"
+                    android:layout_marginTop="@dimen/header_padding"
+                    android:orientation="horizontal">
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/movie_details_cardview"
+                        android:layout_width="@dimen/poster_width"
+                        android:layout_height="@dimen/poster_height"
+                        android:layout_marginBottom="@dimen/regular_padding"
+                        android:layout_marginEnd="@dimen/regular_padding"
+                        android:background="@color/colorWhite"
+                        app:cardElevation="@dimen/small_padding">
+
+                        <ImageView
+                            android:id="@+id/movie_details_poster"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/no_poster" />
+                    </android.support.v7.widget.CardView>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/movie_details_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_toEndOf="@+id/movie_details_cardview"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Título de la película muy largo que ocupa varias líneas (2000)"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/title_text_size"
+                            android:textStyle="bold" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/movie_details_header"
+                            android:layout_marginBottom="@dimen/regular_padding">
+
+                            <TextView
+                                android:id="@+id/movie_details_duration"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:alpha="0.8"
+                                android:drawablePadding="@dimen/tiny_padding"
+                                android:drawableStart="@drawable/ic_access_time_white_18dp"
+                                android:text="1h 52m"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="@dimen/subtitle_text_size"
+                                tools:text="1h 52m" />
+
+                            <com.github.lzyzsd.circleprogress.DonutProgress
+                                android:id="@+id/movie_details_score_progress"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_alignParentEnd="true"
+                                android:background="@drawable/circle"
+                                app:donut_circle_starting_degree="270"
+                                app:donut_finished_color="@color/colorAccent"
+                                app:donut_finished_stroke_width="4dp"
+                                app:donut_inner_bottom_text_color="@color/colorPrimaryDark"
+                                app:donut_progress="0"
+                                app:donut_text="n/a"
+                                app:donut_text_color="@color/colorWhite"
+                                app:donut_text_size="@dimen/alert_text_size"
+                                app:donut_unfinished_color="@color/colorPrimary"
+                                app:donut_unfinished_stroke_width="4dp" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:collapseContentDescription="Título de la película"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/content_scrolling" />
+
+</android.support.design.widget.CoordinatorLayout>
